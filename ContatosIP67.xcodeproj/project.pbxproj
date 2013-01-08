@@ -16,6 +16,7 @@
 		0C0BB260169B3502000AE674 /* FormularioContatoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0BB25E169B3502000AE674 /* FormularioContatoViewController.m */; };
 		0C0BB261169B3502000AE674 /* FormularioContatoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C0BB25F169B3502000AE674 /* FormularioContatoViewController.xib */; };
 		0C94C9A8169C381E008707C7 /* Contato.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C94C9A7169C381E008707C7 /* Contato.m */; };
+		0C94C9AC169C5144008707C7 /* ListaContatosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C94C9AB169C5144008707C7 /* ListaContatosViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,8 @@
 		0C0BB25F169B3502000AE674 /* FormularioContatoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormularioContatoViewController.xib; path = ../FormularioContatoViewController.xib; sourceTree = "<group>"; };
 		0C94C9A6169C381E008707C7 /* Contato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contato.h; sourceTree = "<group>"; };
 		0C94C9A7169C381E008707C7 /* Contato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contato.m; sourceTree = "<group>"; };
+		0C94C9AA169C5144008707C7 /* ListaContatosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListaContatosViewController.h; sourceTree = "<group>"; };
+		0C94C9AB169C5144008707C7 /* ListaContatosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListaContatosViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +87,8 @@
 				0C94C9A6169C381E008707C7 /* Contato.h */,
 				0C94C9A7169C381E008707C7 /* Contato.m */,
 				0C0BB25E169B3502000AE674 /* FormularioContatoViewController.m */,
+				0C94C9AA169C5144008707C7 /* ListaContatosViewController.h */,
+				0C94C9AB169C5144008707C7 /* ListaContatosViewController.m */,
 				0C0BB25F169B3502000AE674 /* FormularioContatoViewController.xib */,
 				0C0BB252169B3318000AE674 /* AppDelegate.h */,
 				0C0BB253169B3318000AE674 /* AppDelegate.m */,
@@ -169,6 +174,7 @@
 				0C0BB254169B3318000AE674 /* AppDelegate.m in Sources */,
 				0C0BB260169B3502000AE674 /* FormularioContatoViewController.m in Sources */,
 				0C94C9A8169C381E008707C7 /* Contato.m in Sources */,
+				0C94C9AC169C5144008707C7 /* ListaContatosViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

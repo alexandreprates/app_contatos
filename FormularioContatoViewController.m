@@ -21,6 +21,10 @@
     self = [super init];
     if (self) {
         _contatos = [[NSMutableArray alloc] init];
+
+        [[self navigationItem] setTitle: @"Novo Contato"];
+        [[self navigationItem] setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Cancela" style:UIBarButtonItemStylePlain target:self action:@selector(escondeForm)]];
+                                                        
     }
     return self;
 }
@@ -58,6 +62,10 @@
     } else if (sender == [self campoEndereco]) {
         [[sender campoSite] becomeFirstResponder];
     }
+}
+
+- (void) escondeForm {
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 
