@@ -25,13 +25,31 @@
 
 - (void) exibeForm {
     FormularioContatoViewController *form = [[FormularioContatoViewController alloc] init];
-    [form setContatos:[self contatos]];
+    [form setContatos:_contatos];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:form];
     [self presentModalViewController:nav animated:YES];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
-    NSLog(@"contatos: %i", [[self contatos] count]);
+    [[self tableView] reloadData];
+}
+
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [_contatos count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    Contato *contato = [[self contatos] objectAtIndex:[indexPath row]];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"celula"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"celula"];
+    }
+    [[cell textLabel] setText:contato.nome];
+    return cell;
 }
 
 @end

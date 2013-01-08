@@ -83,15 +83,15 @@
 		0C0BB249169B3318000AE674 /* ContatosIP67 */ = {
 			isa = PBXGroup;
 			children = (
-				0C0BB25D169B3502000AE674 /* FormularioContatoViewController.h */,
-				0C94C9A6169C381E008707C7 /* Contato.h */,
-				0C94C9A7169C381E008707C7 /* Contato.m */,
-				0C0BB25E169B3502000AE674 /* FormularioContatoViewController.m */,
-				0C94C9AA169C5144008707C7 /* ListaContatosViewController.h */,
-				0C94C9AB169C5144008707C7 /* ListaContatosViewController.m */,
-				0C0BB25F169B3502000AE674 /* FormularioContatoViewController.xib */,
 				0C0BB252169B3318000AE674 /* AppDelegate.h */,
 				0C0BB253169B3318000AE674 /* AppDelegate.m */,
+				0C94C9A6169C381E008707C7 /* Contato.h */,
+				0C94C9A7169C381E008707C7 /* Contato.m */,
+				0C0BB25D169B3502000AE674 /* FormularioContatoViewController.h */,
+				0C0BB25E169B3502000AE674 /* FormularioContatoViewController.m */,
+				0C0BB25F169B3502000AE674 /* FormularioContatoViewController.xib */,
+				0C94C9AA169C5144008707C7 /* ListaContatosViewController.h */,
+				0C94C9AB169C5144008707C7 /* ListaContatosViewController.m */,
 				0C0BB24A169B3318000AE674 /* Supporting Files */,
 			);
 			path = ContatosIP67;
