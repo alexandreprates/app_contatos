@@ -16,6 +16,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *campoEndereco;
 @property (weak, nonatomic) IBOutlet UITextField *campoSite;
 
-- (IBAction)gravarContato:(id)sender;
+@property (strong, nonatomic) NSMutableArray *contatos;
+
+- (IBAction)pegarDadosFormulario:(id)sender;
+- (IBAction)proximoCampo:(id)sender;
 
 @end
