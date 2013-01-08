@@ -8,8 +8,11 @@
 
 #import "ListaContatosViewController.h"
 #import "FormularioContatoViewController.h"
+#import "Contato.h"
 
 @implementation ListaContatosViewController
+
+@synthesize contatos = _contatos;
 
 - (id)init {
     self = [super init];
@@ -22,8 +25,13 @@
 
 - (void) exibeForm {
     FormularioContatoViewController *form = [[FormularioContatoViewController alloc] init];
+    [form setContatos:[self contatos]];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:form];
     [self presentModalViewController:nav animated:YES];
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    NSLog(@"contatos: %i", [[self contatos] count]);
 }
 
 @end

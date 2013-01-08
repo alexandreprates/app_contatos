@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Contato.h"
 
 @interface FormularioContatoViewController : UIViewController
 
@@ -16,9 +17,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *campoEndereco;
 @property (weak, nonatomic) IBOutlet UITextField *campoSite;
 
-@property (strong, nonatomic) NSMutableArray *contatos;
+@property (weak, nonatomic) NSMutableArray *contatos;
 
-- (IBAction)pegarDadosFormulario:(id)sender;
-- (IBAction)proximoCampo:(id)sender;
+- (IBAction) proximoCampo:(id)sender;
+
+- (Contato *) pegarDadosFormulario;
+- (void) escondeForm; 
 
 @end

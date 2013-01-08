@@ -20,36 +20,29 @@
 - (id)init {
     self = [super init];
     if (self) {
-        _contatos = [[NSMutableArray alloc] init];
-
         [[self navigationItem] setTitle: @"Novo Contato"];
         [[self navigationItem] setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Cancela" style:UIBarButtonItemStylePlain target:self action:@selector(escondeForm)]];
-                                                        
+        [[self navigationItem] setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Adiciona" style:UIBarButtonItemStylePlain target:self action:@selector(criaContato)]];
+        
     }
     return self;
 }
 
-- (IBAction)pegarDadosFormulario:(id)sender {
-    //    NSMutableDictionary *contato = [[NSMutableDictionary alloc] init];
-    //    [contato setObject:[campoNome text] forKey:@"nome"];
-    //    [contato setObject:[campoTelefone text] forKey:@"telefone"];
-    //    [contato setObject:[campoEmail text] forKey:@"e-mail"];
-    //    [contato setObject:[campoEndereco text] forKey:@"endereco"];
-    //    [contato setObject:[campoSite text] forKey:@"site"];
-    
+
+-(void) criaContato {
+    Contato *contato = [self pegarDadosFormulario];
+    [[self contatos] addObject:contato];
+    [self escondeForm];
+}
+
+- (Contato *) pegarDadosFormulario {
     Contato *contato = [[Contato alloc] init];
-    
     [contato setNome:[campoNome text]];
     [contato setTelefone:[campoTelefone text]];
     [contato setEmail:[campoEmail text]];
     [contato setEndereco:[campoEndereco text]];
     [contato setSite:[campoSite text]];
-    
-    [[self contatos] addObject:contato];
-    
-    [campoSite resignFirstResponder];
-    
-    NSLog(@"contatos: %@", [self contatos]);
+    return contato;
 }
 
 - (IBAction)proximoCampo:(id)sender {
