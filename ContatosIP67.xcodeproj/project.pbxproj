@@ -13,6 +13,8 @@
 		0C0BB24E169B3318000AE674 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0C0BB24C169B3318000AE674 /* InfoPlist.strings */; };
 		0C0BB250169B3318000AE674 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0BB24F169B3318000AE674 /* main.m */; };
 		0C0BB254169B3318000AE674 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0BB253169B3318000AE674 /* AppDelegate.m */; };
+		0C0BB260169B3502000AE674 /* FormularioContatoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0BB25E169B3502000AE674 /* FormularioContatoViewController.m */; };
+		0C0BB261169B3502000AE674 /* FormularioContatoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C0BB25F169B3502000AE674 /* FormularioContatoViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +22,15 @@
 		0C0BB243169B3318000AE674 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0C0BB245169B3318000AE674 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0C0BB247169B3318000AE674 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		0C0BB24B169B3318000AE674 /* ContatosIP67-Info.plist */ = {isa = PBXFileReference; path = "ContatosIP67-Info.plist"; sourceTree = "<group>"; };
+		0C0BB24B169B3318000AE674 /* ContatosIP67-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ContatosIP67-Info.plist"; sourceTree = "<group>"; };
 		0C0BB24D169B3318000AE674 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0C0BB24F169B3318000AE674 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		0C0BB251169B3318000AE674 /* ContatosIP67-Prefix.pch */ = {isa = PBXFileReference; path = "ContatosIP67-Prefix.pch"; sourceTree = "<group>"; };
-		0C0BB252169B3318000AE674 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		0C0BB251169B3318000AE674 /* ContatosIP67-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ContatosIP67-Prefix.pch"; sourceTree = "<group>"; };
+		0C0BB252169B3318000AE674 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0C0BB253169B3318000AE674 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0C0BB25D169B3502000AE674 /* FormularioContatoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormularioContatoViewController.h; path = ../FormularioContatoViewController.h; sourceTree = "<group>"; };
+		0C0BB25E169B3502000AE674 /* FormularioContatoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormularioContatoViewController.m; path = ../FormularioContatoViewController.m; sourceTree = "<group>"; };
+		0C0BB25F169B3502000AE674 /* FormularioContatoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormularioContatoViewController.xib; path = ../FormularioContatoViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +77,9 @@
 		0C0BB249169B3318000AE674 /* ContatosIP67 */ = {
 			isa = PBXGroup;
 			children = (
+				0C0BB25D169B3502000AE674 /* FormularioContatoViewController.h */,
+				0C0BB25E169B3502000AE674 /* FormularioContatoViewController.m */,
+				0C0BB25F169B3502000AE674 /* FormularioContatoViewController.xib */,
 				0C0BB252169B3318000AE674 /* AppDelegate.h */,
 				0C0BB253169B3318000AE674 /* AppDelegate.m */,
 				0C0BB24A169B3318000AE674 /* Supporting Files */,
@@ -141,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C0BB24E169B3318000AE674 /* InfoPlist.strings in Resources */,
+				0C0BB261169B3502000AE674 /* FormularioContatoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +162,7 @@
 			files = (
 				0C0BB250169B3318000AE674 /* main.m in Sources */,
 				0C0BB254169B3318000AE674 /* AppDelegate.m in Sources */,
+				0C0BB260169B3502000AE674 /* FormularioContatoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +266,7 @@
 				0C0BB259169B3318000AE674 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
