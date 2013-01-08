@@ -25,7 +25,7 @@
 
 - (void) exibeForm {
     FormularioContatoViewController *form = [[FormularioContatoViewController alloc] init];
-    [form setContatos:_contatos];
+    [form setContatos: [self contatos]];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:form];
     [self presentModalViewController:nav animated:YES];
 }
@@ -39,16 +39,17 @@
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_contatos count];
+    return [[self contatos] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Contato *contato = [[self contatos] objectAtIndex:[indexPath row]];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"celula"];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"celula"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"celula"];
     }
-    [[cell textLabel] setText:contato.nome];
+    Contato *contato = [[self contatos] objectAtIndex:[indexPath row]];
+    [[cell textLabel] setText:[contato nome]];
+    [[cell detailTextLabel] setText:[contato email]];
     return cell;
 }
 

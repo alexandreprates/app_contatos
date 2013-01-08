@@ -31,8 +31,7 @@
 
 -(void) criaContato {
     Contato *contato = [self pegarDadosFormulario];
-    [_contatos addObject:contato];
-    NSLog(@"%i", [_contatos count]);
+    [[self contatos] addObject:contato];
     [self escondeForm];
 }
 

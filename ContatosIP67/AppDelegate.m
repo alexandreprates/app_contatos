@@ -23,7 +23,7 @@
     [self setContatos:[[NSMutableArray alloc] init]];
     
     ListaContatosViewController *listaContatos = [[ListaContatosViewController alloc] init];
-    [listaContatos setContatos: _contatos];
+    [listaContatos setContatos: [self contatos]];
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:listaContatos];
     self.window.rootViewController = nav;
