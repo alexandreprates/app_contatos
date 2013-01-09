@@ -91,8 +91,8 @@
 				0C0BB25D169B3502000AE674 /* FormularioContatoViewController.h */,
 				0C0BB25E169B3502000AE674 /* FormularioContatoViewController.m */,
 				0C0BB25F169B3502000AE674 /* FormularioContatoViewController.xib */,
-				0C94C9AA169C5144008707C7 /* ListaContatosViewController.h */,
 				0C925FF8169DDC88009C6E6B /* ListaContatosProtocol.h */,
+				0C94C9AA169C5144008707C7 /* ListaContatosViewController.h */,
 				0C94C9AB169C5144008707C7 /* ListaContatosViewController.m */,
 				0C0BB24A169B3318000AE674 /* Supporting Files */,
 			);

@@ -103,9 +103,35 @@
 {
     if (linhaDestaque >= 0) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:linhaDestaque inSection:0];
-        [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
-        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionNone animated:YES];
+        [[self tableView] selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+        [[self tableView] scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionNone animated:YES];
     }
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(exibeMaisAcoes:)];
+    [[self tableView] addGestureRecognizer:longPress];
+}
+
+- (void)exibeMaisAcoes:(UIGestureRecognizer *)gesto
+{
+    if (gesto.state == UIGestureRecognizerStateBegan) {
+        CGPoint ponto = [gesto locationInView:[self tableView]];
+        NSIndexPath *index = [[self tableView] indexPathForRowAtPoint:ponto];
+        Contato *contato = [[self contatos] objectAtIndex:[index row]];
+        
+        contatoSelectionado = contato;
+        
+        UIActionSheet *opcoes = [[UIActionSheet alloc] initWithTitle:[contato nome] delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Ligar", @"Enviar e-mail", @"Visualizar site", @"Abrir mapa", nil];
+        [opcoes showInView:[self view]];
+    }
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"%i", buttonIndex);
+}
+         
 @end
