@@ -18,6 +18,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *campoSite;
 
 @property (weak, nonatomic) NSMutableArray *contatos;
+@property (weak, nonatomic) Contato *contato;
+
+- (id)initWithContato:(Contato *) contato;
 
 - (IBAction) proximoCampo:(id)sender;
 

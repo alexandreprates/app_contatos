@@ -38,4 +38,10 @@
     return self;
 }
 
+- (NSString *) description
+{
+    NSString *text = [[NSString alloc] initWithFormat:@"contato:\nnome: %@\ntelefone: %@\nemail: %@\nendereco: %@\nsite: %@", self.nome, self.telefone, self.email, self.endereco, self.site];
+    return text;
+}
+
 @end

@@ -17,6 +17,7 @@
 @synthesize campoEndereco;
 @synthesize campoSite;
 @synthesize contatos = _contatos;
+@synthesize contato = _contato;
 
 - (id)init
 {
@@ -32,6 +33,16 @@
                                                                                      target:self 
                                                                                      action:@selector(criaContato)]];
         
+    }
+    return self;
+}
+
+- (id)initWithContato:(Contato *) contato
+{
+    self = [super init];
+    if (self) {
+        [self setContato: contato];
+        [[self navigationItem] setTitle:[contato nome]];
     }
     return self;
 }
@@ -71,6 +82,17 @@
 - (void)escondeForm 
 {
     [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void)viewDidLoad
+{
+    if ([self contato]) {
+        [[self campoNome] setText:[[self contato] nome]];
+        [[self campoTelefone] setText:[[self contato] telefone]];
+        [[self campoEmail] setText:[[self contato] email]];
+        [[self campoEndereco] setText:[[self contato] endereco]];
+        [[self campoSite] setText:[[self contato] site]];
+    }
 }
 
 @end
