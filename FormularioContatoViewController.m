@@ -23,8 +23,14 @@
     self = [super init];
     if (self) {
         [[self navigationItem] setTitle: @"Novo Contato"];
-        [[self navigationItem] setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Cancela" style:UIBarButtonItemStylePlain target:self action:@selector(escondeForm)]];
-        [[self navigationItem] setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Adiciona" style:UIBarButtonItemStylePlain target:self action:@selector(criaContato)]];
+        [[self navigationItem] setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Cancela" 
+                                                                                     style:UIBarButtonItemStylePlain 
+                                                                                    target:self 
+                                                                                    action:@selector(escondeForm)]];
+        [[self navigationItem] setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Adiciona" 
+                                                                                      style:UIBarButtonItemStylePlain 
+                                                                                     target:self 
+                                                                                     action:@selector(criaContato)]];
         
     }
     return self;

@@ -19,7 +19,9 @@
     self = [super init];
     if (self) {
         [[self navigationItem] setTitle: @"Contatos"];
-        [[self navigationItem] setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(exibeForm)]];
+        [[self navigationItem] setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
+                                                                                                   target:self 
+                                                                                                   action:@selector(exibeForm)]];
     }
     return self;
 }
