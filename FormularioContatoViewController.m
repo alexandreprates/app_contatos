@@ -10,6 +10,7 @@
 #import "Contato.h"
 
 @implementation FormularioContatoViewController
+
 @synthesize campoNome;
 @synthesize campoTelefone;
 @synthesize campoEmail;
@@ -17,7 +18,8 @@
 @synthesize campoSite;
 @synthesize contatos = _contatos;
 
-- (id)init {
+- (id)init
+{
     self = [super init];
     if (self) {
         [[self navigationItem] setTitle: @"Novo Contato"];
@@ -29,13 +31,15 @@
 }
 
 
--(void) criaContato {
+- (void)criaContato
+{
     Contato *contato = [self pegarDadosFormulario];
     [[self contatos] addObject:contato];
     [self escondeForm];
 }
 
-- (Contato *) pegarDadosFormulario {
+- (Contato *)pegarDadosFormulario
+{
     Contato *contato = [[Contato alloc] init];
     [contato setNome:[campoNome text]];
     [contato setTelefone:[campoTelefone text]];
@@ -45,7 +49,8 @@
     return contato;
 }
 
-- (IBAction)proximoCampo:(id)sender {
+- (IBAction)proximoCampo:(id)sender
+{
     if (sender == [self campoNome]) {
         [[self campoTelefone] becomeFirstResponder];
     } else if (sender == [self campoTelefone]) {
@@ -57,9 +62,9 @@
     }
 }
 
-- (void) escondeForm {
+- (void)escondeForm 
+{
     [self dismissModalViewControllerAnimated:YES];
 }
-
 
 @end

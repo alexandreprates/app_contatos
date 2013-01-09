@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ListaContatosViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) NSMutableArray *contatos;
+@property (strong, nonatomic) ListaContatosViewController *viewController;
+@property (strong, nonatomic) NSString *arquivoContatos;
 
 @end

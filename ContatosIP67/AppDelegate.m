@@ -13,6 +13,8 @@
 
 @synthesize window = _window;
 @synthesize contatos = _contatos;
+@synthesize viewController = _viewController;
+@synthesize arquivoContatos = _arquivoContatos;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -20,15 +22,28 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
-    [self setContatos:[[NSMutableArray alloc] init]];
+    NSArray *userDirs = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentDir = [userDirs objectAtIndex:0];
+    self.arquivoContatos = [NSString stringWithFormat:@"%@/ArquivoContatos", documentDir];
     
-    ListaContatosViewController *listaContatos = [[ListaContatosViewController alloc] init];
-    [listaContatos setContatos: [self contatos]];
+    [self setContatos:[NSKeyedUnarchiver unarchiveObjectWithFile:[self arquivoContatos]]];
     
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:listaContatos];
+    if (![self contatos]) {
+        [self setContatos:[[NSMutableArray alloc] init]];
+    }
+    
+    [self setViewController:[[ListaContatosViewController alloc] init]];
+    [[self viewController] setContatos:[self contatos]];
+
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[self viewController]];
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+    [NSKeyedArchiver archiveRootObject:self.contatos toFile:self.arquivoContatos];
 }
 
 @end
