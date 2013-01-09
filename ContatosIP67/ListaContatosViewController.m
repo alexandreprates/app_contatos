@@ -24,6 +24,7 @@
                                                                                                    target:self 
                                                                                                    action:@selector(exibeForm)]];
         [[self navigationItem] setLeftBarButtonItem:[self editButtonItem]];
+        [self setLinhaDestaque:-1];
     }
     return self;
 }
@@ -93,7 +94,7 @@
     linhaDestaque = [[self contatos] indexOfObject:contato];
 }
 
-- (void) contatoAdicionado:(Contato *)contato
+- (void) contatoAdicionado:(Contato *) contato
 {
     linhaDestaque = [[self contatos] indexOfObject:contato];
     [[self contatos] addObject:contato];
