@@ -16,7 +16,7 @@
 @synthesize campoEmail;
 @synthesize campoEndereco;
 @synthesize campoSite;
-@synthesize contatos = _contatos;
+@synthesize delegate;
 @synthesize contato = _contato;
 
 - (id)init
@@ -43,6 +43,8 @@
     if (self) {
         [self setContato: contato];
         [[self navigationItem] setTitle:[contato nome]];
+        UIBarButtonItem *confimar = [[UIBarButtonItem alloc] initWithTitle:@"Confirmar" style:UIBarButtonItemStylePlain target:self action:@selector(atualizaContato)];
+        [[self navigationItem] setRightBarButtonItem:confimar];
     }
     return self;
 }
@@ -51,19 +53,34 @@
 - (void)criaContato
 {
     Contato *contato = [self pegarDadosFormulario];
-    [[self contatos] addObject:contato];
+    if (self.delegate) {
+        [self.delegate contatoAdicionado:contato];
+    }
     [self escondeForm];
+}
+
+- (void) atualizaContato
+{
+    Contato *contato = [self pegarDadosFormulario];
+    if (self.delegate) {
+        [self.delegate contatoAtualizado:contato];
+    }
+    [[self navigationController] popViewControllerAnimated:YES];
 }
 
 - (Contato *)pegarDadosFormulario
 {
-    Contato *contato = [[Contato alloc] init];
-    [contato setNome:[campoNome text]];
-    [contato setTelefone:[campoTelefone text]];
-    [contato setEmail:[campoEmail text]];
-    [contato setEndereco:[campoEndereco text]];
-    [contato setSite:[campoSite text]];
-    return contato;
+    if (![self contato]) {
+        [self setContato:[[Contato alloc] init]];
+    }
+    
+    [[self contato] setNome:[campoNome text]];
+    [[self contato] setTelefone:[campoTelefone text]];
+    [[self contato] setEmail:[campoEmail text]];
+    [[self contato] setEndereco:[campoEndereco text]];
+    [[self contato] setSite:[campoSite text]];
+    
+    return [self contato];
 }
 
 - (IBAction)proximoCampo:(id)sender

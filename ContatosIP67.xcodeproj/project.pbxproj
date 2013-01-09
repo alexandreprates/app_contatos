@@ -33,6 +33,7 @@
 		0C0BB25D169B3502000AE674 /* FormularioContatoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormularioContatoViewController.h; path = ../FormularioContatoViewController.h; sourceTree = "<group>"; };
 		0C0BB25E169B3502000AE674 /* FormularioContatoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormularioContatoViewController.m; path = ../FormularioContatoViewController.m; sourceTree = "<group>"; };
 		0C0BB25F169B3502000AE674 /* FormularioContatoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FormularioContatoViewController.xib; path = ../FormularioContatoViewController.xib; sourceTree = "<group>"; };
+		0C925FF8169DDC88009C6E6B /* ListaContatosProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListaContatosProtocol.h; sourceTree = "<group>"; };
 		0C94C9A6169C381E008707C7 /* Contato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contato.h; sourceTree = "<group>"; };
 		0C94C9A7169C381E008707C7 /* Contato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contato.m; sourceTree = "<group>"; };
 		0C94C9AA169C5144008707C7 /* ListaContatosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListaContatosViewController.h; sourceTree = "<group>"; };
@@ -91,6 +92,7 @@
 				0C0BB25E169B3502000AE674 /* FormularioContatoViewController.m */,
 				0C0BB25F169B3502000AE674 /* FormularioContatoViewController.xib */,
 				0C94C9AA169C5144008707C7 /* ListaContatosViewController.h */,
+				0C925FF8169DDC88009C6E6B /* ListaContatosProtocol.h */,
 				0C94C9AB169C5144008707C7 /* ListaContatosViewController.m */,
 				0C0BB24A169B3318000AE674 /* Supporting Files */,
 			);

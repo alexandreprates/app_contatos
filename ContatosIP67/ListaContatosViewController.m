@@ -13,6 +13,7 @@
 @implementation ListaContatosViewController
 
 @synthesize contatos = _contatos;
+@synthesize linhaDestaque;
 
 - (id)init
 {
@@ -30,7 +31,7 @@
 - (void)exibeForm
 {
     FormularioContatoViewController *form = [[FormularioContatoViewController alloc] init];
-    [form setContatos: [self contatos]];
+    [form setDelegate:self];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:form];
     [self presentModalViewController:nav animated:YES];
 }
@@ -64,6 +65,7 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [[self contatos] removeObjectAtIndex:[indexPath row]];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -75,8 +77,35 @@
 {
     Contato *contato = [[self contatos] objectAtIndex:[indexPath row]];
     FormularioContatoViewController *form = [[FormularioContatoViewController alloc] initWithContato:contato];
-    form.contatos = [self contatos];
+    [form setDelegate:self];
     [[self navigationController] pushViewController:form animated:YES];
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    Contato *contato = [[self contatos] objectAtIndex:[sourceIndexPath row]];
+    [[self contatos] removeObjectAtIndex:[sourceIndexPath row]];
+    [[self contatos] insertObject:contato atIndex:[destinationIndexPath row]];
+}
+
+- (void)contatoAtualizado:(Contato *) contato;
+{
+    linhaDestaque = [[self contatos] indexOfObject:contato];
+}
+
+- (void) contatoAdicionado:(Contato *)contato
+{
+    linhaDestaque = [[self contatos] indexOfObject:contato];
+    [[self contatos] addObject:contato];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    if (linhaDestaque >= 0) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:linhaDestaque inSection:0];
+        [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionNone animated:YES];
+    }
 }
 
 @end

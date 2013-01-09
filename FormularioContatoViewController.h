@@ -7,18 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ListaContatosProtocol.h"
 #import "Contato.h"
 
-@interface FormularioContatoViewController : UIViewController
+@interface FormularioContatoViewController : UIViewController<ListaContatosProtocol>
 
-@property (weak, nonatomic) IBOutlet UITextField *campoNome;
-@property (weak, nonatomic) IBOutlet UITextField *campoTelefone;
-@property (weak, nonatomic) IBOutlet UITextField *campoEmail;
-@property (weak, nonatomic) IBOutlet UITextField *campoEndereco;
-@property (weak, nonatomic) IBOutlet UITextField *campoSite;
+@property(weak, nonatomic) IBOutlet UITextField *campoNome;
+@property(weak, nonatomic) IBOutlet UITextField *campoTelefone;
+@property(weak, nonatomic) IBOutlet UITextField *campoEmail;
+@property(weak, nonatomic) IBOutlet UITextField *campoEndereco;
+@property(weak, nonatomic) IBOutlet UITextField *campoSite;
 
-@property (weak, nonatomic) NSMutableArray *contatos;
-@property (weak, nonatomic) Contato *contato;
+@property(weak)id<ListaContatosProtocol> delegate;
+@property(strong, nonatomic) Contato *contato;
 
 - (id)initWithContato:(Contato *) contato;
 
