@@ -112,4 +112,12 @@
     }
 }
 
+- (void)contatoAtualizado:(Contato *) contato
+{
+}
+
+- (void)contatoAdicionado:(Contato *) contato
+{
+}
+
 @end
