@@ -58,13 +58,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"celula"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"celula"];
-    }
+    ContatoCell *cell = (ContatoCell *) [tableView dequeueReusableCellWithIdentifier:@"contatoCell"];
     Contato *contato = [[self contatos] objectAtIndex:[indexPath row]];
-    [[cell textLabel] setText:[contato nome]];
-    [[cell detailTextLabel] setText:[contato email]];
+
+    cell.Nome.text = contato.nome;
+    cell.email.text = contato.email;
+    cell.imagem.image = contato.foto;
+    
     return cell;
 }
 
@@ -116,6 +116,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"contatoCell" 
+                                               bundle:[NSBundle mainBundle]]
+         forCellReuseIdentifier:@"contatoCell"];
+    self.tableView.rowHeight = 60;
+    
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(exibeMaisAcoes:)];
     [[self tableView] addGestureRecognizer:longPress];
 }

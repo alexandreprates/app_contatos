@@ -10,6 +10,7 @@
 #import <MessageUI/MFMailComposeViewController.h>
 #import <Twitter/TWTweetComposeViewController.h>
 #import "ListaContatosProtocol.h"
+#import "ContatoCell.h"
 
 @interface ListaContatosViewController : UITableViewController <ListaContatosProtocol, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 {
