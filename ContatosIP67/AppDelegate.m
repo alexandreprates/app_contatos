@@ -13,7 +13,6 @@
 
 @synthesize window = _window;
 @synthesize contatos = _contatos;
-@synthesize viewController = _viewController;
 @synthesize arquivoContatos = _arquivoContatos;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -32,14 +31,15 @@
         [self setContatos:[[NSMutableArray alloc] init]];
     }
     
-    [self setViewController:[[ListaContatosViewController alloc] init]];
-    [[self viewController] setContatos:[self contatos]];
-
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[self viewController]];
+    ListaContatosViewController *listaContatosViewController = [[ListaContatosViewController alloc] init];
+    [listaContatosViewController setContatos:[self contatos]];
+    UINavigationController *listaContatosNavigationBar = [[UINavigationController alloc] initWithRootViewController:listaContatosViewController];
+    
     ContatosNoMapaViewController *contatosMapa = [[ContatosNoMapaViewController alloc] init];
+    UINavigationController *contatosMapaNavigationBar = [[UINavigationController alloc] initWithRootViewController:contatosMapa];
     
     UITabBarController *tab = [[UITabBarController alloc] init];
-    [tab setViewControllers:[NSArray arrayWithObjects:nav, contatosMapa, nil]];
+    [tab setViewControllers:[NSArray arrayWithObjects:listaContatosNavigationBar, contatosMapaNavigationBar, nil]];
     
     self.window.rootViewController = tab;
     [self.window makeKeyAndVisible];
