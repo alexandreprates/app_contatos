@@ -124,8 +124,27 @@
     
 }
 
+- (void)tecladoApareceu:(NSNotification *)notificacao {
+    NSLog(@"O teclado apareceu na tela");
+}
+
+- (void)tecladoSumiu:(NSNotification *)notificacao {
+    NSLog(@"Um teclado sumiu da tela");
+}
+
+
 - (void)viewDidLoad
 {
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(tecladoApareceu:) 
+                                                 name:UIKeyboardDidShowNotification 
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(tecladoSumiu:) 
+                                                 name:UIKeyboardDidHideNotification 
+                                               object:nil];
+    
     if ([self contato]) {
         [[self campoNome] setText:[[self contato] nome]];
         [[self campoTelefone] setText:[[self contato] telefone]];
