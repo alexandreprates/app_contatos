@@ -125,7 +125,7 @@
         
         contatoSelectionado = contato;
         
-        UIActionSheet *opcoes = [[UIActionSheet alloc] initWithTitle:[contato nome] delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Ligar", @"Enviar e-mail", @"Visualizar site", @"Abrir mapa", nil];
+        UIActionSheet *opcoes = [[UIActionSheet alloc] initWithTitle:[contato nome] delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Ligar", @"Enviar e-mail", @"Visualizar site", @"Abrir mapa", @"Enviar Tweet", nil];
         [opcoes showInView:[self view]];
     }
 }
@@ -173,6 +173,13 @@
     }
 }
 
+- (void)enviarTweet
+{
+    TWTweetComposeViewController *tw = [[TWTweetComposeViewController alloc] init];
+    [tw setInitialText:[contatoSelectionado twitter]];
+    [self presentModalViewController:tw animated:YES];
+}
+
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     switch (buttonIndex) {
@@ -187,6 +194,9 @@
             break;
         case 3:
             [self mostrarMapa];
+            break;
+        case 4:
+            [self enviarTweet];
             break;
         default:
             break;

@@ -10,13 +10,15 @@
 #import "ListaContatosProtocol.h"
 #import "Contato.h"
 
-@interface FormularioContatoViewController : UIViewController<ListaContatosProtocol>
-
-@property(weak, nonatomic) IBOutlet UITextField *campoNome;
-@property(weak, nonatomic) IBOutlet UITextField *campoTelefone;
-@property(weak, nonatomic) IBOutlet UITextField *campoEmail;
-@property(weak, nonatomic) IBOutlet UITextField *campoEndereco;
-@property(weak, nonatomic) IBOutlet UITextField *campoSite;
+@interface FormularioContatoViewController : UIViewController<ListaContatosProtocol, UIImagePickerControllerDelegate>
+ 
+@property (weak, nonatomic) IBOutlet UITextField *campoNome;
+@property (weak, nonatomic) IBOutlet UITextField *campoTelefone;
+@property (weak, nonatomic) IBOutlet UITextField *campoEmail;
+@property (weak, nonatomic) IBOutlet UITextField *campoEndereco;
+@property (weak, nonatomic) IBOutlet UITextField *campoSite;
+@property (weak, nonatomic) IBOutlet UIButton *botaoFoto;
+@property (weak, nonatomic) IBOutlet UITextField *campoTwitter;
 
 @property(weak)id<ListaContatosProtocol> delegate;
 @property(strong, nonatomic) Contato *contato;
@@ -24,6 +26,7 @@
 - (id)initWithContato:(Contato *) contato;
 
 - (IBAction) proximoCampo:(id)sender;
+- (IBAction)selecionaFoto:(id)sender;
 
 - (Contato *) pegarDadosFormulario;
 - (void) escondeForm; 

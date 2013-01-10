@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <MessageUI/MFMailComposeViewController.h>
+#import <Twitter/TWTweetComposeViewController.h>
 #import "ListaContatosProtocol.h"
 
 @interface ListaContatosViewController : UITableViewController <ListaContatosProtocol, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
@@ -19,5 +20,4 @@
 @property NSInteger linhaDestaque;
 
 - (void)exibeMaisAcoes:(UIGestureRecognizer *) gesto;
-
 @end

@@ -16,6 +16,8 @@
 @synthesize campoEmail;
 @synthesize campoEndereco;
 @synthesize campoSite;
+@synthesize botaoFoto;
+@synthesize campoTwitter;
 @synthesize delegate;
 @synthesize contato = _contato;
 
@@ -79,6 +81,10 @@
     [[self contato] setEmail:[campoEmail text]];
     [[self contato] setEndereco:[campoEndereco text]];
     [[self contato] setSite:[campoSite text]];
+    [[self contato] setTwitter:[campoTwitter text]];
+    if ([[botaoFoto imageView] image]) {
+        [[self contato] setFoto:[[botaoFoto imageView] image]];
+    }
     
     return [self contato];
 }
@@ -86,11 +92,15 @@
 - (IBAction)proximoCampo:(id)sender
 {
     if (sender == [self campoNome]) {
-        [[self campoTelefone] becomeFirstResponder];
-    } else if (sender == [self campoTelefone]) {
         [[self campoEmail] becomeFirstResponder];
     } else if (sender == [self campoEmail]) {
-        [[self campoEndereco] becomeFirstResponder];
+        [[self campoTelefone] becomeFirstResponder];
+    } else if (sender == [self campoTelefone]) {
+        [[self campoTwitter] becomeFirstResponder];
+    } else if (sender == [self campoTwitter]) {
+        [[sender campoSite] becomeFirstResponder];
+    } else if (sender == [self campoSite]) {
+        [[sender campoEndereco] becomeFirstResponder];
     } else if (sender == [self campoEndereco]) {
         [[sender campoSite] becomeFirstResponder];
     }
@@ -101,6 +111,19 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
+- (IBAction)selecionaFoto:(id)sender {
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+//        <#statements#>
+    } else {
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        [picker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+        picker.allowsEditing = YES;
+        picker.delegate = self;
+        [self presentModalViewController:picker animated:YES];
+    }
+    
+}
+
 - (void)viewDidLoad
 {
     if ([self contato]) {
@@ -109,6 +132,10 @@
         [[self campoEmail] setText:[[self contato] email]];
         [[self campoEndereco] setText:[[self contato] endereco]];
         [[self campoSite] setText:[[self contato] site]];
+        [[self campoTwitter] setText:[[self contato] twitter]];
+        if ([[self contato] foto]) {
+            [[self botaoFoto] setImage:[[self contato] foto] forState:UIControlStateNormal];
+        }
     }
 }
 
@@ -120,4 +147,16 @@
 {
 }
 
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *imagemSelecionada = [info valueForKey:UIImagePickerControllerEditedImage];
+    [botaoFoto setImage:imagemSelecionada forState:UIControlStateNormal];
+    [picker dismissModalViewControllerAnimated:YES];
+}
+
+- (void)viewDidUnload {
+    [self setBotaoFoto:nil];
+    [self setCampoTwitter:nil];
+    [super viewDidUnload];
+}
 @end
