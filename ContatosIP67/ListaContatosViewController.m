@@ -19,6 +19,10 @@
 {
     self = [super init];
     if (self) {
+        UIImage *icon = [UIImage imageNamed:@"lista-contatos.png"];
+        UITabBarItem *bar = [[UITabBarItem alloc] initWithTitle:@"Lista" image:icon tag:0];
+        [self setTabBarItem:bar];
+
         [[self navigationItem] setTitle: @"Contatos"];
         [[self navigationItem] setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
                                                                                                    target:self 

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ListaContatosViewController.h"
+#import "ContatosNoMapaViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

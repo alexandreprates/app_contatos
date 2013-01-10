@@ -36,7 +36,12 @@
     [[self viewController] setContatos:[self contatos]];
 
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[self viewController]];
-    self.window.rootViewController = nav;
+    ContatosNoMapaViewController *contatosMapa = [[ContatosNoMapaViewController alloc] init];
+    
+    UITabBarController *tab = [[UITabBarController alloc] init];
+    [tab setViewControllers:[NSArray arrayWithObjects:nav, contatosMapa, nil]];
+    
+    self.window.rootViewController = tab;
     [self.window makeKeyAndVisible];
     return YES;
 }
