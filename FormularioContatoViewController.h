@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *campoTwitter;
 @property (weak, nonatomic) IBOutlet UITextField *campoLatitude;
 @property (weak, nonatomic) IBOutlet UITextField *campoLongitude;
+@property (weak, nonatomic) IBOutlet UIButton *botaoGeocode;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loading;
 
 @property(weak)id<ListaContatosProtocol> delegate;
 @property(strong, nonatomic) Contato *contato;

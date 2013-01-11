@@ -20,6 +20,8 @@
 @synthesize campoTwitter;
 @synthesize campoLatitude;
 @synthesize campoLongitude;
+@synthesize botaoGeocode;
+@synthesize loading;
 @synthesize delegate;
 @synthesize contato = _contato;
 
@@ -133,6 +135,8 @@
 }
 
 - (IBAction)buscarCoordenadas:(id)sender {
+    [loading startAnimating];
+    [botaoGeocode setHidden:YES];
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     [geocoder geocodeAddressString:[[self campoEndereco] text] completionHandler:^(NSArray *placemarks, NSError *error) {
         if (!error && [placemarks count] > 0) {
@@ -141,9 +145,9 @@
             campoLatitude.text = [NSString stringWithFormat:@"%f", coordenada.latitude];
             campoLongitude.text = [NSString stringWithFormat:@"%f", coordenada.longitude];
         } 
+        [loading stopAnimating];
+        [botaoGeocode setHidden:NO];
     }];
-    
-    
 }
 
 - (void)tecladoApareceu:(NSNotification *)notificacao {
@@ -200,6 +204,8 @@
 - (void)viewDidUnload {
     [self setCampoLatitude:nil];
     [self setCampoLongitude:nil];
+    [self setBotaoGeocode:nil];
+    [self setLoading:nil];
     [super viewDidUnload];
 }
 @end
