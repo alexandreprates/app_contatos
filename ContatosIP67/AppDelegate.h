@@ -16,5 +16,6 @@
 
 @property (strong, nonatomic) NSMutableArray *contatos;
 @property (strong, nonatomic) NSString *arquivoContatos;
+@property (readonly, strong) NSManagedObjectContext *contexto;
 
 @end

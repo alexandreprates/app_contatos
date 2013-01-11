@@ -14,6 +14,7 @@
 @synthesize window = _window;
 @synthesize contatos = _contatos;
 @synthesize arquivoContatos = _arquivoContatos;
+@synthesize contexto = _contexto;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -50,6 +51,40 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
     [NSKeyedArchiver archiveRootObject:self.contatos toFile:self.arquivoContatos];
+}
+
+- (NSURL *)applicationDocumentsDirectory
+{
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+- (NSManagedObjectModel *)managedObjectModel
+{
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"ModeloContatos" withExtension:@"momd"];
+    NSManagedObjectModel *managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    return managedObjectModel;
+}
+
+- (NSPersistentStoreCoordinator *)coordinator
+{
+    NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    NSURL *pastaDocuments = [self applicationDocumentsDirectory];
+    NSURL *bancoDeDados = [pastaDocuments URLByAppendingPathComponent:@"c ontatos.sqlite"];
+    
+    [coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:bancoDeDados options:nil error:nil];
+    return coordinator;
+}
+
+- (NSManagedObjectContext *)contexto
+{
+    if (_contexto != nil) {
+        return _contexto;
+    }
+    
+    NSPersistentStoreCoordinator *coordinator = [self coordinator];
+    _contexto = [[NSManagedObjectContext alloc] init];
+    [_contexto setPersistentStoreCoordinator:coordinator];
+    return _contexto;
 }
 
 @end

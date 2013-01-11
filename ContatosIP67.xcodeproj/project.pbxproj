@@ -25,6 +25,8 @@
 		0C96E88C169F05A800F5B7CA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C96E88B169F05A800F5B7CA /* MapKit.framework */; };
 		0C96E891169F065100F5B7CA /* ContatosNoMapaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C96E88F169F065100F5B7CA /* ContatosNoMapaViewController.m */; };
 		0C96E892169F065100F5B7CA /* ContatosNoMapaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C96E890169F065100F5B7CA /* ContatosNoMapaViewController.xib */; };
+		0CAF325916A07A1200A6A37E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CAF325816A07A1200A6A37E /* CoreData.framework */; };
+		0CD3CB4716A0747600CC6443 /* ModeloContatos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0CD3CB4516A0747600CC6443 /* ModeloContatos.xcdatamodeld */; };
 		0CDF82DD169EFDBE00736A18 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CDF82DC169EFDBE00736A18 /* Twitter.framework */; };
 		0CFEA3FA169F1F8B00B57347 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CFEA3F1169F1F8B00B57347 /* Default.png */; };
 		0CFEA3FB169F1F8B00B57347 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CFEA3F2169F1F8B00B57347 /* Default@2x.png */; };
@@ -67,6 +69,8 @@
 		0C96E88E169F065100F5B7CA /* ContatosNoMapaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContatosNoMapaViewController.h; path = ../ContatosNoMapaViewController.h; sourceTree = "<group>"; };
 		0C96E88F169F065100F5B7CA /* ContatosNoMapaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContatosNoMapaViewController.m; path = ../ContatosNoMapaViewController.m; sourceTree = "<group>"; };
 		0C96E890169F065100F5B7CA /* ContatosNoMapaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ContatosNoMapaViewController.xib; path = ../ContatosNoMapaViewController.xib; sourceTree = "<group>"; };
+		0CAF325816A07A1200A6A37E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		0CD3CB4616A0747600CC6443 /* ModeloContatos.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ModeloContatos.xcdatamodel; sourceTree = "<group>"; };
 		0CDF82DC169EFDBE00736A18 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		0CFEA3F1169F1F8B00B57347 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		0CFEA3F2169F1F8B00B57347 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -84,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CAF325916A07A1200A6A37E /* CoreData.framework in Frameworks */,
 				0C8D2BC216A0361300FEBCE8 /* CoreLocation.framework in Frameworks */,
 				0C96E88C169F05A800F5B7CA /* MapKit.framework in Frameworks */,
 				0CDF82DD169EFDBE00736A18 /* Twitter.framework in Frameworks */,
@@ -117,6 +122,7 @@
 		0C0BB242169B3318000AE674 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0CAF325816A07A1200A6A37E /* CoreData.framework */,
 				0C8D2BC116A0361300FEBCE8 /* CoreLocation.framework */,
 				0C96E88B169F05A800F5B7CA /* MapKit.framework */,
 				0CDF82DC169EFDBE00736A18 /* Twitter.framework */,
@@ -131,6 +137,7 @@
 		0C0BB249169B3318000AE674 /* ContatosIP67 */ = {
 			isa = PBXGroup;
 			children = (
+				0CD3CB4516A0747600CC6443 /* ModeloContatos.xcdatamodeld */,
 				0C0BB252169B3318000AE674 /* AppDelegate.h */,
 				0C0BB253169B3318000AE674 /* AppDelegate.m */,
 				0C94C9A6169C381E008707C7 /* Contato.h */,
@@ -263,6 +270,7 @@
 				0C96E891169F065100F5B7CA /* ContatosNoMapaViewController.m in Sources */,
 				0C1008FF169F3AC900FBCE30 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				0C818628169F413100D41493 /* ContatoCell.m in Sources */,
+				0CD3CB4716A0747600CC6443 /* ModeloContatos.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +377,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0CD3CB4516A0747600CC6443 /* ModeloContatos.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0CD3CB4616A0747600CC6443 /* ModeloContatos.xcdatamodel */,
+			);
+			currentVersion = 0CD3CB4616A0747600CC6443 /* ModeloContatos.xcdatamodel */;
+			name = ModeloContatos.xcdatamodeld;
+			path = ../ModeloContatos.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0C0BB236169B3318000AE674 /* Project object */;
 }
