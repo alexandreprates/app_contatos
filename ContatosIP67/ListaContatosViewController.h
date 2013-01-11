@@ -18,6 +18,7 @@
 }
 
 @property (weak, nonatomic) NSMutableArray *contatos;
+@property (weak, nonatomic) NSManagedObjectContext *contexto;
 @property NSInteger linhaDestaque;
 
 - (void)exibeMaisAcoes:(UIGestureRecognizer *) gesto;

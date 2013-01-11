@@ -24,6 +24,7 @@
 @synthesize loading;
 @synthesize delegate;
 @synthesize contato = _contato;
+@synthesize contexto;
 
 - (id)init
 {
@@ -77,7 +78,7 @@
 - (Contato *)pegarDadosFormulario
 {
     if (![self contato]) {
-        [self setContato:[[Contato alloc] init]];
+        _contato = [NSEntityDescription insertNewObjectForEntityForName:@"Contato" inManagedObjectContext:[self contexto]];
     }
     
     [[self contato] setNome:[campoNome text]];

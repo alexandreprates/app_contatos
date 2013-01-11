@@ -18,4 +18,7 @@
 @property (strong, nonatomic) NSString *arquivoContatos;
 @property (readonly, strong) NSManagedObjectContext *contexto;
 
+- (void) inserirDados;
+- (void) buscarContatos;
+
 @end

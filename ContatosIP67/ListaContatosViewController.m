@@ -13,6 +13,7 @@
 @implementation ListaContatosViewController
 
 @synthesize contatos = _contatos;
+@synthesize contexto;
 @synthesize linhaDestaque;
 
 - (id)init
@@ -37,6 +38,7 @@
 {
     FormularioContatoViewController *form = [[FormularioContatoViewController alloc] init];
     [form setDelegate:self];
+    [form setContexto:[self contexto]];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:form];
     [self presentModalViewController:nav animated:YES];
 }

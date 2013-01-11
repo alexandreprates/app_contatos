@@ -25,8 +25,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *botaoGeocode;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loading;
 
-@property(weak)id<ListaContatosProtocol> delegate;
-@property(strong, nonatomic) Contato *contato;
+@property (weak)id<ListaContatosProtocol> delegate;
+@property (strong, nonatomic) Contato *contato;
+@property (weak, nonatomic) NSManagedObjectContext *contexto;
 
 - (id)initWithContato:(Contato *) contato;
 

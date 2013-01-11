@@ -10,44 +10,8 @@
 
 @implementation Contato
 
-@synthesize nome = _nome;
-@synthesize telefone = _telefone;
-@synthesize email = _email;
-@synthesize endereco = _endereco;
-@synthesize site = _site;
-@synthesize twitter = _twitter;
-@synthesize latitude, longitude;
-@synthesize foto = _foto;
-
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
-    [aCoder encodeObject:[self nome] forKey:@"nome"];
-    [aCoder encodeObject:[self telefone] forKey:@"telefone"];
-    [aCoder encodeObject:[self email] forKey:@"email"];
-    [aCoder encodeObject:[self endereco] forKey:@"endereco"];
-    [aCoder encodeObject:[self site] forKey:@"site"];
-    [aCoder encodeObject:[self twitter] forKey:@"twitter"];
-    [aCoder encodeObject:[self latitude] forKey:@"latitude"];
-    [aCoder encodeObject:[self longitude] forKey:@"longitude"];
-    [aCoder encodeObject:[self foto] forKey:@"foto"];
-}
-
-- (id)initWithCoder:(NSCoder *)coder
-{
-    self = [super init];
-    if (self) {
-        [self setNome:[coder decodeObjectForKey:@"nome"]];
-        [self setTelefone:[coder decodeObjectForKey:@"telefone"]];
-        [self setEmail:[coder decodeObjectForKey:@"email"]];
-        [self setEndereco:[coder decodeObjectForKey:@"endereco"]];
-        [self setSite:[coder decodeObjectForKey:@"site"]];
-        [self setTwitter:[coder decodeObjectForKey:@"twitter"]];
-        [self setLatitude:[coder decodeObjectForKey:@"latitude"]];
-        [self setLongitude:[coder decodeObjectForKey:@"longitude"]];
-        [self setFoto:[coder decodeObjectForKey:@"foto"]];
-    }
-    return self;
-}
+@dynamic nome, telefone, email, endereco, site, latitude, longitude;
+@synthesize foto;
 
 - (NSString *) description
 {
@@ -57,7 +21,7 @@
 
 - (CLLocationCoordinate2D)coordinate
 {
-    return CLLocationCoordinate2DMake([latitude floatValue], [longitude floatValue]);
+    return CLLocationCoordinate2DMake([self.latitude floatValue], [self.longitude floatValue]);
 }
 
 - (NSString *) title
