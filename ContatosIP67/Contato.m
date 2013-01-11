@@ -16,6 +16,7 @@
 @synthesize endereco = _endereco;
 @synthesize site = _site;
 @synthesize twitter = _twitter;
+@synthesize latitude, longitude;
 @synthesize foto = _foto;
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
@@ -26,6 +27,8 @@
     [aCoder encodeObject:[self endereco] forKey:@"endereco"];
     [aCoder encodeObject:[self site] forKey:@"site"];
     [aCoder encodeObject:[self twitter] forKey:@"twitter"];
+    [aCoder encodeObject:[self latitude] forKey:@"latitude"];
+    [aCoder encodeObject:[self longitude] forKey:@"longitude"];
     [aCoder encodeObject:[self foto] forKey:@"foto"];
 }
 
@@ -39,6 +42,8 @@
         [self setEndereco:[coder decodeObjectForKey:@"endereco"]];
         [self setSite:[coder decodeObjectForKey:@"site"]];
         [self setTwitter:[coder decodeObjectForKey:@"twitter"]];
+        [self setLatitude:[coder decodeObjectForKey:@"latitude"]];
+        [self setLongitude:[coder decodeObjectForKey:@"longitude"]];
         [self setFoto:[coder decodeObjectForKey:@"foto"]];
     }
     return self;

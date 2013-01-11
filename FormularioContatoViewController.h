@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 #import "ListaContatosProtocol.h"
 #import "Contato.h"
 
@@ -19,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *campoSite;
 @property (weak, nonatomic) IBOutlet UIButton *botaoFoto;
 @property (weak, nonatomic) IBOutlet UITextField *campoTwitter;
+@property (weak, nonatomic) IBOutlet UITextField *campoLatitude;
+@property (weak, nonatomic) IBOutlet UITextField *campoLongitude;
 
 @property(weak)id<ListaContatosProtocol> delegate;
 @property(strong, nonatomic) Contato *contato;
@@ -27,6 +30,7 @@
 
 - (IBAction) proximoCampo:(id)sender;
 - (IBAction)selecionaFoto:(id)sender;
+- (IBAction)buscarCoordenadas:(id)sender;
 
 - (Contato *) pegarDadosFormulario;
 - (void) escondeForm; 

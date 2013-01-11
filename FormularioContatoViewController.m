@@ -18,6 +18,8 @@
 @synthesize campoSite;
 @synthesize botaoFoto;
 @synthesize campoTwitter;
+@synthesize campoLatitude;
+@synthesize campoLongitude;
 @synthesize delegate;
 @synthesize contato = _contato;
 
@@ -82,6 +84,10 @@
     [[self contato] setEndereco:[campoEndereco text]];
     [[self contato] setSite:[campoSite text]];
     [[self contato] setTwitter:[campoTwitter text]];
+    [[self contato] setLatitude:[NSNumber numberWithFloat:[campoLatitude.text floatValue]]];
+    [[self contato] setLongitude:[NSNumber numberWithFloat:[campoLongitude.text floatValue]]];
+    [[self contato] setTwitter:[campoTwitter text]];
+    
     if ([[botaoFoto imageView] image]) {
         [[self contato] setFoto:[[botaoFoto imageView] image]];
     }
@@ -102,8 +108,10 @@
     } else if (sender == [self campoSite]) {
         [[sender campoEndereco] becomeFirstResponder];
     } else if (sender == [self campoEndereco]) {
-        [[sender campoSite] becomeFirstResponder];
-    }
+        [[sender campoLatitude] becomeFirstResponder];
+    } else if (sender == [self campoLatitude]) {
+        [[sender campoLongitude] becomeFirstResponder];
+    };
 }
 
 - (void)escondeForm 
@@ -121,6 +129,20 @@
         picker.delegate = self;
         [self presentModalViewController:picker animated:YES];
     }
+    
+}
+
+- (IBAction)buscarCoordenadas:(id)sender {
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder geocodeAddressString:[[self campoEndereco] text] completionHandler:^(NSArray *placemarks, NSError *error) {
+        if (!error && [placemarks count] > 0) {
+            CLPlacemark *resultado = [placemarks objectAtIndex:0];
+            CLLocationCoordinate2D coordenada = resultado.location.coordinate;
+            campoLatitude.text = [NSString stringWithFormat:@"%f", coordenada.latitude];
+            campoLongitude.text = [NSString stringWithFormat:@"%f", coordenada.longitude];
+        } 
+    }];
+    
     
 }
 
@@ -152,6 +174,8 @@
         [[self campoEndereco] setText:[[self contato] endereco]];
         [[self campoSite] setText:[[self contato] site]];
         [[self campoTwitter] setText:[[self contato] twitter]];
+        [[self campoLatitude] setText:[[[self contato] latitude] stringValue]];
+        [[self campoLongitude] setText:[[[self contato] longitude] stringValue]];
         if ([[self contato] foto]) {
             [[self botaoFoto] setImage:[[self contato] foto] forState:UIControlStateNormal];
         }
@@ -174,8 +198,8 @@
 }
 
 - (void)viewDidUnload {
-    [self setBotaoFoto:nil];
-    [self setCampoTwitter:nil];
+    [self setCampoLatitude:nil];
+    [self setCampoLongitude:nil];
     [super viewDidUnload];
 }
 @end

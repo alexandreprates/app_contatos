@@ -19,6 +19,7 @@
 		0C257F54169EDE9500E0B283 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C257F53169EDE9500E0B283 /* MessageUI.framework */; };
 		0C818628169F413100D41493 /* ContatoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C818627169F413100D41493 /* ContatoCell.m */; };
 		0C81862A169F416D00D41493 /* ContatoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C818629169F416D00D41493 /* ContatoCell.xib */; };
+		0C8D2BC216A0361300FEBCE8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C8D2BC116A0361300FEBCE8 /* CoreLocation.framework */; };
 		0C94C9A8169C381E008707C7 /* Contato.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C94C9A7169C381E008707C7 /* Contato.m */; };
 		0C94C9AC169C5144008707C7 /* ListaContatosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C94C9AB169C5144008707C7 /* ListaContatosViewController.m */; };
 		0C96E88C169F05A800F5B7CA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C96E88B169F05A800F5B7CA /* MapKit.framework */; };
@@ -56,6 +57,7 @@
 		0C818626169F413100D41493 /* ContatoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContatoCell.h; sourceTree = "<group>"; };
 		0C818627169F413100D41493 /* ContatoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContatoCell.m; sourceTree = "<group>"; };
 		0C818629169F416D00D41493 /* ContatoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContatoCell.xib; sourceTree = "<group>"; };
+		0C8D2BC116A0361300FEBCE8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		0C925FF8169DDC88009C6E6B /* ListaContatosProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListaContatosProtocol.h; sourceTree = "<group>"; };
 		0C94C9A6169C381E008707C7 /* Contato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contato.h; sourceTree = "<group>"; };
 		0C94C9A7169C381E008707C7 /* Contato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contato.m; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C8D2BC216A0361300FEBCE8 /* CoreLocation.framework in Frameworks */,
 				0C96E88C169F05A800F5B7CA /* MapKit.framework in Frameworks */,
 				0CDF82DD169EFDBE00736A18 /* Twitter.framework in Frameworks */,
 				0C257F54169EDE9500E0B283 /* MessageUI.framework in Frameworks */,
@@ -114,6 +117,7 @@
 		0C0BB242169B3318000AE674 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0C8D2BC116A0361300FEBCE8 /* CoreLocation.framework */,
 				0C96E88B169F05A800F5B7CA /* MapKit.framework */,
 				0CDF82DC169EFDBE00736A18 /* Twitter.framework */,
 				0C257F53169EDE9500E0B283 /* MessageUI.framework */,
