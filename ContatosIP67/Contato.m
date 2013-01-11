@@ -60,4 +60,14 @@
     return CLLocationCoordinate2DMake([latitude floatValue], [longitude floatValue]);
 }
 
+- (NSString *) title
+{
+    return self.nome;
+}
+
+- (NSString *) subtitle
+{
+    return self.endereco;
+}
+
 @end
