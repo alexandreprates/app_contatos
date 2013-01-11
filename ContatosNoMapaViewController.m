@@ -10,7 +10,7 @@
 #import <MapKit/MKUserTrackingBarButtonItem.h>
 
 @implementation ContatosNoMapaViewController
-@synthesize mapView;
+@synthesize mapView, contatos;
 
 - (id)init {
     self = [super init];
@@ -33,6 +33,18 @@
 {
     [self setMapView:nil];
     [super viewDidUnload];
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.mapView addAnnotations:contatos];
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.mapView removeAnnotations:contatos];
 }
 
 @end

@@ -36,6 +36,7 @@
     UINavigationController *listaContatosNavigationBar = [[UINavigationController alloc] initWithRootViewController:listaContatosViewController];
     
     ContatosNoMapaViewController *contatosMapa = [[ContatosNoMapaViewController alloc] init];
+    [contatosMapa setContatos:[self contatos]];
     UINavigationController *contatosMapaNavigationBar = [[UINavigationController alloc] initWithRootViewController:contatosMapa];
     
     UITabBarController *tab = [[UITabBarController alloc] init];
